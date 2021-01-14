@@ -1,10 +1,13 @@
 html,body{
-   margin: 0;
    height: 100%;
+}
+body,dl,dd{
+    margin: 0;
 }
 .header{
     height: 70px;
-    background-color: #352257;
+    line-height: 70px;
+    background-color: #354457;
 }
 
 .left-menu{
@@ -19,4 +22,37 @@ html,body{
     height: calc(100% - 70px);
     background-color: #eee;
     
+}
+.header .logo{
+    padding-left: 20px;
+    color: #b3bcc5;
+    font-size: 14px;
+}
+.header .logo img{
+    height: 30px;
+    width: 30px;
+    vertical-align: middle;
+}
+.left-menu dl{
+    line-height: 40px;
+    font-size: 14px;
+    color: #b3bcc5;
+}
+.left-menu dl dt{
+    padding-left: 10px;
+}
+.left-menu dl dd{
+    padding-left: 40px;
+    cursor: pointer;
+
+}
+.left-menu dl dd:hover{
+    background-color: rgba(255,255,255,0.5);
+    color: #354457;
+
+}
+.left-menu dl dd.active{
+    background-color: #ddd;  
+    color: #354457;
+
 }
