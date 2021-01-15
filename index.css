@@ -68,7 +68,7 @@ form{
 form div{
     margin: 10px 0;
 }
-form div lable:not(.sex){
+form div label:not(.sex){
     display: inline-block;
     width: 80px;
     text-align: center;
