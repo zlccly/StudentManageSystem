@@ -17,6 +17,7 @@ body,dl,dd{
     background-color: #4d5e70;
 }
 .right-content{
+    position: relative;
     float: left;
     width: calc(100% - 200px);
     height: calc(100% - 70px);
@@ -55,4 +56,23 @@ body,dl,dd{
     background-color: #ddd;  
     color: #354457;
 
+}
+.right-content .content{
+    position: absolute;
+    width: 100%;
+}
+form{
+    width: 400px;
+    margin: 20px auto;
+}
+form div{
+    margin: 10px 0;
+}
+form div lable:not(.sex){
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+}
+form .btn{
+    padding: 5px 28px;
 }
