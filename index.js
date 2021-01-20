@@ -24,16 +24,26 @@ function bindEvent(){
     addSubmitBtn.onclick = function(e){
         e.preventDefault();
         var oForm = document.getElementById('student-add-form');
+        //获取表单中所有数据
         var data = getFormData(oForm);
-        console.log(data);
+        //数据校验
+        var isValid = isValidForm(data);
+        if(!isValid){
+            return false;
+        }
         var strData = "";
         for(var prop in data){
             if(data.hasOwnProperty(prop)){
                 strData += prop + '=' + data[prop]+'&';
             }
         }
-        strData += 'Lucky_1609985096639';
+        strData += 'appkey=Lucky_1609985096639';
         console.log(strData);
+        ajax('get','http://open.duyiedu.com/api/student/findAll' , strData, function(res){
+            if(res.status == 'success'){
+
+            }
+        }, true)
 
 
     }
@@ -44,7 +54,6 @@ function getSiblings(node){
     //获取该元素的父元素的虽有子元素
     var children = node.parentNode.children;
     var result = [];
-    //
     for(var i = 0; i < children.length; i++){
         if(children[i] != node){
             result.push(children[i]);
@@ -64,6 +73,40 @@ function getFormData(form){
         address: form.address.value
 
     }
+
+}
+//表单的规则校验
+function isValidForm(data){
+    //定义异常对象,两个异常，1.没有填写，2，填写不符合要求
+    var errorObj = {
+        name: ["请填写学生姓名"],
+        sNo: ["请填写学生学号", "学号由4-16位的数字组成"],
+        birth: ["请填写出生年份", "仅接收50岁以内的学生"],
+        email: ["请填写邮箱", "邮箱格式不正确"],
+        sex: [],
+        phone: ["请填写手机号", "手机号格式不正确"],
+        address: ["请填写住址"]
+    };
+    for(var prop in data){
+        if(data.hasOwnProperty(prop)){
+            if(!data[prop]){
+                alert(errorObj[prop][0]);
+                return false;
+            }
+        }
+    }
+    var regSNo = /^\d{4,16}$/;
+    // var regBirth = /[6-50]/;
+
+    if(!regSNo.test(data.sNo)){
+        alert(errorObj.sNo[1]);
+        return false;
+    }
+    // if(!regBirth.test(data.birth)){
+    //     alert(errorObj.birth[1]);
+    //     return false;
+    // }
+    return true;
 
 }
 bindEvent();
