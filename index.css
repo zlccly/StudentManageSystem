@@ -60,6 +60,11 @@ body,dl,dd{
 .right-content .content{
     position: absolute;
     width: 100%;
+    display: none;
+}
+.right-content .content .show-content{
+    display: block;
+
 }
 form{
     width: 400px;

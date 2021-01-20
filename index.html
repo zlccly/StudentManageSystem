@@ -16,13 +16,13 @@
     <div class="left-menu">
         <dl>
             <dt>学生管理</dt>
-            <dd>学生列表</dd>
-            <dd>新增列表</dd>
+            <dd data-id="student-list">学生列表</dd>
+            <dd data-id="student-add">新增列表</dd>
         </dl>
     </div>
     <div class="right-content">
-        <div class="student-list content"></div>
-        <div class="add-student content">
+        <div id="student-list" class="student-list content"></div>
+        <div id="student-add" class="add-student content" show-content>
            <form id="student-add-form" action="">
             <div>
                 <label for="add-name">姓名</label>
