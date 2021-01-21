@@ -117,6 +117,13 @@ function isValidForm(data){
     return true;
 
 }
+
+//获取表格中的数据
+function getTableData(){
+    ajax('get','http://open.duyiedu.com/api/student/findAll', 'appkey=Lucky_1609985096639', function(res){
+
+    })
+}
 bindEvent();
 
 
