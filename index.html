@@ -16,13 +16,13 @@
     <div class="left-menu">
         <dl>
             <dt>学生管理</dt>
-            <dd data-id="student-list">学生列表</dd>
-            <dd data-id="student-add">新增列表</dd>
+            <dd data-id="student-list" class="active">学生列表</dd>
+            <dd data-id="student-add" >新增列表</dd>
         </dl>
     </div>
     <div class="right-content">
-        <div id="student-list" class="student-list content"></div>
-        <div id="student-add" class="add-student content" show-content>
+        
+        <div id="student-add" class="student-add content " >
            <form id="student-add-form" action="">
             <div>
                 <label for="add-name">姓名</label>
@@ -61,6 +61,37 @@
                 <input class="btn" type="reset">
             </div>
            </form>
+        </div>
+        <div id="student-list" class="student-list content show-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>邮箱</th>
+                        <th>年龄</th>
+                        <th>手机号</th>
+                        <th>住址</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01001</td>
+                        <td>terry</td>
+                        <td>女</td>
+                        <td>2847398756@qq.com</td>
+                        <td>18</td>
+                        <td>13345672345</td>
+                        <td>China</td>
+                        <td>
+                            <button class="btn edit">编辑</button>
+                            <button class="btn remove">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 

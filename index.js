@@ -16,6 +16,13 @@ function bindEvent(){
                 siblings[i].classList.remove('active')
             }
             e.target.classList.add('active');
+            var id = e.target.dataset.id;
+            var content = document.getElementById(id);
+            var contentSibling = getSiblings(content);
+            for(var i = 0; i < contentSibling.length; i++){
+                contentSibling[i].classList.remove('show-content');
+            }
+            content.classList.add('show-content');
 
         }
         
@@ -39,11 +46,12 @@ function bindEvent(){
         }
         strData += 'appkey=Lucky_1609985096639';
         console.log(strData);
-        ajax('get','http://open.duyiedu.com/api/student/findAll' , strData, function(res){
-            if(res.status == 'success'){
-
-            }
-        }, true)
+        // ajax('get','http://open.duyiedu.com/api/student/addStudent' , strData, function(res){
+            // if(res.status == 'success'){
+                var studentListBtn = document.querySelector('.left-menu dl dd[data-id="student-list"]');
+                studentListBtn.click();
+            // }
+        // }, true)
 
 
     }

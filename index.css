@@ -62,7 +62,7 @@ body,dl,dd{
     width: 100%;
     display: none;
 }
-.right-content .content .show-content{
+.right-content .content.show-content{
     display: block;
 
 }
@@ -80,4 +80,32 @@ form div label:not(.sex){
 }
 form .btn{
     padding: 5px 28px;
+}
+ .content.student-list table{
+     width: 100%;
+     text-align: center;
+     line-height: 30px;
+     font-size: 14px;
+ }
+ .student-list thead{
+     background-color: #e3e8ee;
+     color: #646987;
+ }
+ .student-list tbody{
+    background-color: #fff;
+}
+.student-list tbody .btn{
+    border:none;
+    outline: none;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.student-list tbody .btn.edit{
+    background-color: #5cb85c;
+
+}
+.student-list tbody .btn.remove{
+    background-color: #d9534f;
+
 }
