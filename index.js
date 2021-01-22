@@ -46,12 +46,12 @@ function bindEvent(){
         }
         strData += 'appkey=Lucky_1609985096639';
         console.log(strData);
-        // ajax('get','http://open.duyiedu.com/api/student/addStudent' , strData, function(res){
-            // if(res.status == 'success'){
+        ajax('get','http://open.duyiedu.com/api/student/addStudent' , strData, function(res){
+            if(res.status == 'success'){
                 var studentListBtn = document.querySelector('.left-menu dl dd[data-id="student-list"]');
                 studentListBtn.click();
-            // }
-        // }, true)
+            }
+        }, true)
 
 
     }
@@ -121,10 +121,38 @@ function isValidForm(data){
 //获取表格中的数据
 function getTableData(){
     ajax('get','http://open.duyiedu.com/api/student/findAll', 'appkey=Lucky_1609985096639', function(res){
-
+        if(res.status == 'success'){
+            console.log('获取学生信息成功');
+            renderTable(res.data);
+        }
     })
 }
+//渲染表格数据
+function renderTable(data){
+    console.log(data);
+    var strData = "";
+    data.forEach(function(item){
+        strData += `<tr>
+            <td>${item.sNo}</td>
+            <td>${item.name}</td>
+            <td>${item.sex === 0 ? '男' : '女'}</td>
+            <td>${item.email}</td>
+            <td>${new Date().getFullYear() - item.birth}</td>
+            <td>${item.phone}</td>
+            <td>${item.address}</td>
+            <td>
+                <button class="btn edit">编辑</button>
+                <button class="btn remove">删除</button>
+            </td>
+        </tr>`
+    });
+    console.log(strData);
+
+    var tbody = document.getElementsByClassName('student-body');
+    tbody.innerHTML = strData;
+}
 bindEvent();
+getTableData();
 
 
 
